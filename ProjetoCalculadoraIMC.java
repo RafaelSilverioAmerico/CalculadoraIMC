@@ -19,5 +19,18 @@ public class ProjetoCalculadoraIMC extends Application{
 	campoPeso.setPromptText("Peso em kg");
 	TextField campoAltura = new TextField();
 	campoAltura.setPromptText("Altura em metros");
+
+	// Label para mostrar o resultado do IMC
+	Label etiquetaResultado = new Label();
+
+	// Botão para calcular o IMC
+	Button botaoCalcular = new Button("Calcular IMC");
+	botaoCalcular.setOnAction(e -> {
+		double peso = Double.parseDouble(campoPeso.getText());
+		double altura = Double.parseDouble(campoAltura.getText());
+
+		double imc = peso / (altura * altura);
+		etiquetaResultado.setText(String.format("Seu IMC é: %.2f,", imc));
+	});
 	}
 }
